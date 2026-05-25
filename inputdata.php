@@ -9,10 +9,10 @@
 <body>
     <nav>
         <ul>
-            <ul><a href="index.html">Home</a></ul>
-            <ul><a href="profil.html">Profil</a></ul>
-            <ul><a href="contact.html">Contact</a></ul>
-            <ul><a href="mahasiswa.html">Data</a></ul>
+            <ul><a href="index.php">Home</a></ul>
+            <ul><a href="profil.php">Profil</a></ul>
+            <ul><a href="contact.php">Contact</a></ul>
+            <ul><a href="mahasiswa.php">Data</a></ul>
         </ul>
     </nav>
     <h2>Input Data Mahasiswa</h2>
@@ -25,13 +25,13 @@
             </tr>
             <tr>
                <td> <label for="tugas">Nilai Tugas:</label></td>
-               <td><input type="number" id="tugas" name="tugas"></td> 
+               <td><input type="number" id="tugas" name="tugas"></td>
             </tr>
-            
+
             <tr>
                 <td><label for="uts">Nilai UTS:</label></td>
                 <td><input type="number" id="uts" name="uts"></td>
-            </tr>    
+            </tr>
             <tr>
                 <td><label for="uas">Nilai UAS:</label></td>
                 <td><input type="number" id="uas" name="uas"></td>
@@ -46,25 +46,25 @@
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" name="submit" value="Submit"></td>
-            </tr>                
+            </tr>
         </table>
     </form>
     <hr>
     <h2>Latihan Soal</h2>
-    <form action="mahasiswa.html" method="post" style="
-    align-items: flex-start; 
-    display: flex; 
+    <form action="mahasiswa.php" method="post" style="
+    align-items: flex-start;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px; 
-    border: 1px solid #ccc; 
+    padding: 20px;
+    border: 1px solid #ccc;
     border-radius: 5px;
     max-width: 400px;
     ">
         <label for="Nama">Nama</label>
         <input type="text" id="Nama" name="Nama"><br>
 
-        <label for="NIM">NIM</label> 
+        <label for="NIM">NIM</label>
         <input type="text" id="NIM" name="NIM"><br>
 
         <label for="password">Password</label>
@@ -97,7 +97,7 @@
         </div>
 
         <br>
-        
+
         <label for="hobi">Hobi</label>
         <div style="display: flex; align-items: center;">
             <input type="checkbox" id="membaca" name="hobi" value="membaca">
