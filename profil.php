@@ -9,10 +9,10 @@
 <body>
     <nav>
         <ul>
-            <ul><a href="index.html">Home</a></ul>
-            <ul><a href="profil.html">Profil</a></ul>
-            <ul><a href="contact.html">Contact</a></ul>
-            <ul><a href="mahasiswa.html">Data</a></ul>
+            <ul><a href="index.php">Home</a></ul>
+            <ul><a href="profil.php">Profil</a></ul>
+            <ul><a href="contact.php">Contact</a></ul>
+            <ul><a href="mahasiswa.php">Data</a></ul>
         </ul>
     </nav>
     <h1>profile</h1>
