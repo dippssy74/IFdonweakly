@@ -1,3 +1,30 @@
+<?php
+    $host = "localhost";
+    $username = "root";
+    $password = "root";
+    $database = "ifdonweekly";
+
+    $conn = new mysqli($host, $username, $password, $database);
+
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    //     echo "gagal koneksi";
+    // }
+    // else {
+    //     echo "koneksi berhasil";
+    // }
+
+    $query = "SELECT * FROM mahasiswa";
+    $result = mysqli_query($conn, $query);
+
+    //mysqli_fetch_row
+    //mysqli_fetch_assoc
+    //mysqli_fetch_object
+    //mysqli_fetch_array
+
+    // $getData = mysqli_fetch_all($result, MYSQLI_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,46 +63,30 @@
             <th >foto</th>
             <th >aksi</th>
         </tr>
+<?php
+$no = 1;
+while ($getData = mysqli_fetch_assoc($result)){
 
+?>
         <tr>
-            <td>1</td>
-            <td>Doni</td>
-            <td>9999</td>
-            <td>9999</td>
-            <td>9999</td>
-            <td>IF C</td>
-            <td><img src="aset/ismail.jpeg" alt="foto doni" width="100"></td>
+            <td>
+                <?php echo $no++; ?>
+            </td>
+            <td><?php echo $getData["nama_mhs"] ?></td>
+            <td><?php echo $getData["Nim_mhs"] ?></td>
+            <td><?php echo $getData["jurusan"] ?></td>
+            <td><?php echo $getData["email"] ?></td>
+            <td><?= $getData["no_hp"] ?></td>
+            <td><img src="aset/<?= $getData["photo"] ?>" width="100"></td>
             <td>
                 <a href="editdata.php?id=1">Edit</a> |
                 <a href="hapusdata.php?id=1" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
             </td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Alip</td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-            <td>IF C</td>
-            <td><img src="aset/mwehehe.jpeg" alt="foto alip" width="100"></td>
-            <td>
-                <a href="editdata.php?id=2">Edit</a> |
-                <a href="hapusdata.php?id=2" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
-            </td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Betrand</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>IF C</td>
-            <td><img src="aset/plenger.jpeg" alt="foto betrand" width="100"></td>
-            <td>
-                <a href="editdata.php?id=3">Edit</a> |
-                <a href="hapusdata.php?id=3" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
-            </td>
-        </tr>
+<?php
+    }
+?>
+
     </table>
 
 
