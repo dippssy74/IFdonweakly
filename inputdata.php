@@ -1,3 +1,28 @@
+<?php
+
+    require 'fungction.php';
+
+    if(isset($_POST["submit"])){
+
+        if (tambahdata($_POST) > 0){
+            echo "
+                <script>
+                    alert('data berhasil ditambahkan');
+                    document.location.href = 'mahasiswa.php';
+                </script>
+            ";
+        } else {
+            echo "
+                <script>
+                    alert('data gagal ditambahkan');
+                    document.location.href = 'mahasiswa.php';
+                </script>
+            ";
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,113 +42,37 @@
     </nav>
     <h2>Input Data Mahasiswa</h2>
     <hr>
-    <form>
+    <form action="" method="post">
         <table>
             <tr>
-                <td><label for="nama">Nama:</label><br></td>
-                <td><input type="text" id="nama" name="nama"></td>
+                <td><label for="nama">Nama :</label><br></td>
+                <td><input type="text" id="nama_mhs" name="nama_mhs" required></td>
             </tr>
             <tr>
-               <td> <label for="tugas">Nilai Tugas:</label></td>
-               <td><input type="number" id="tugas" name="tugas"></td>
+               <td> <label for="Nim">Nim :</label></td>
+               <td><input type="number" id="Nim_mhs" name="Nim_mhs" required></td>
             </tr>
 
             <tr>
-                <td><label for="uts">Nilai UTS:</label></td>
-                <td><input type="number" id="uts" name="uts"></td>
+                <td><label for="jurusan">jurusan :</label></td>
+                <td><input type="text" id="jurusan" name="jurusan" required></td>
             </tr>
             <tr>
-                <td><label for="uas">Nilai UAS:</label></td>
-                <td><input type="number" id="uas" name="uas"></td>
+                <td><label for="email">email :</label></td>
+                <td><input type="email" id="email" name="email" required></td>
             </tr>
             <tr>
-                <td><label for="kelas">Kelas:</label></td>
-                <td><input type="text" id="kelas" name="kelas"></td>
+                <td><label for="no_hp">Nomor HP :</label></td>
+                <td><input type="text" id="no_hp" name="no_hp" required></td>
             </tr>
             <tr>
-                <td><label for="foto">Foto:</label></td>
-                <td><input type="file" id="foto" name="foto"></td>
+                <td><label for="foto">Foto :</label></td>
+                <td><input type="text" id="photo" name="photo"></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" name="submit" value="Submit"></td>
+                <td colspan="2"><input type="submit" name="submit" value="submit"></td>
             </tr>
         </table>
     </form>
-    <hr>
-    <h2>Latihan Soal</h2>
-    <form action="mahasiswa.php" method="post" style="
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    max-width: 400px;
-    ">
-        <label for="Nama">Nama</label>
-        <input type="text" id="Nama" name="Nama"><br>
-
-        <label for="NIM">NIM</label>
-        <input type="text" id="NIM" name="NIM"><br>
-
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password"><br>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email"><br>
-
-        <label for="nohp">No HP</label>
-        <input type="tel" id="nohp" name="nohp"><br>
-
-        <label for="website">Website pribadi</label>
-        <input type="url" id="website" name="website"><br>
-
-        <label for="tanggal">Tanggal Lahir</label>
-        <input type="date" id="tanggal" name="tanggal"><br>
-
-        <label for="warna">Warna Favorit</label>
-        <input type="color" id="warna" name="warna"><br>
-
-        <label for="tingkatkepuasan">Tingkat Kepuasan</label>
-        <input type="range" id="tingkatkepuasan" name="tingkat kepuasan" min="0" max="10"><br>
-
-        <label for="jenisklamin">Jenis Kelamin</label>
-        <div style="display: flex; align-items: center;">
-            <input type="radio" id="laki-laki" name="jeniskelamin" value="laki-laki">
-            <label for="laki-laki">Laki-laki</label>
-            <input type="radio" id="perempuan" name="jeniskelamin" value="perempuan"><br>
-            <label for="perempuan">Perempuan</label>
-        </div>
-
-        <br>
-
-        <label for="hobi">Hobi</label>
-        <div style="display: flex; align-items: center;">
-            <input type="checkbox" id="membaca" name="hobi" value="membaca">
-            <label for="membaca">Menggambar</label>
-            <input type="checkbox" id="berolahraga" name="hobi" value="berolahraga">
-            <label for="berolahraga">mendengar musik</label>
-            <input type="checkbox" id="bermain game" name="hobi" value="bermain game">
-            <label for="bermain game">Bermain Game</label><br>
-        </div>
-
-        <br>
-
-        <label for="foto">Foto</label>
-        <input type="file" id="foto" name="foto"><br>
-
-        <label for="alamat">Alamat</label><br>
-        <textarea id="alamat" name="alamat" rows="4" cols="50"></textarea><br>
-
-        <label for="jurusan">Jurusan</label>
-        <select id="jurusan" name="jurusan">
-            <option value="Teknik Informatika">Teknik Informatika</option>
-            <option value="Sistem Informasi">Sistem Informasi</option>
-            <option value="Manajemen Informatika">Manajemen Informatika</option>
-        </select><br>
-
-        <input type="submit" name="submit" value="Submit">
-    </form>
-</body>
+   </body>
 </html>
