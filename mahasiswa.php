@@ -1,21 +1,9 @@
 <?php
-    $host = "localhost";
-    $username = "root";
-    $password = "root";
-    $database = "ifdonweekly";
+    require 'fungction.php';
 
-    $conn = new mysqli($host, $username, $password, $database);
+    $qmahasiswa = "SELECT * FROM mahasiswa";
 
-    // if ($conn->connect_error) {
-    //     die("Connection failed: " . $conn->connect_error);
-    //     echo "gagal koneksi";
-    // }
-    // else {
-    //     echo "koneksi berhasil";
-    // }
-
-    $query = "SELECT * FROM mahasiswa";
-    $result = mysqli_query($conn, $query);
+    $datamahasiswa = tampildata($qmahasiswa); //menghasilkan data dalam bentuk array
 
     //mysqli_fetch_row
     //mysqli_fetch_assoc
@@ -65,19 +53,19 @@
         </tr>
 <?php
 $no = 1;
-while ($getData = mysqli_fetch_assoc($result)){
+foreach ($datamahasiswa as $mhs){
 
 ?>
         <tr>
             <td>
                 <?php echo $no++; ?>
             </td>
-            <td><?php echo $getData["nama_mhs"] ?></td>
-            <td><?php echo $getData["Nim_mhs"] ?></td>
-            <td><?php echo $getData["jurusan"] ?></td>
-            <td><?php echo $getData["email"] ?></td>
-            <td><?= $getData["no_hp"] ?></td>
-            <td><img src="aset/<?= $getData["photo"] ?>" width="100"></td>
+            <td><?php echo $mhs["nama_mhs"] ?></td>
+            <td><?php echo $mhs["Nim_mhs"] ?></td>
+            <td><?php echo $mhs["jurusan"] ?></td>
+            <td><?php echo $mhs["email"] ?></td>
+            <td><?= $mhs["no_hp"] ?></td>
+            <td><img src="aset/<?= $mhs["photo"] ?>" width="100"></td>
             <td>
                 <a href="editdata.php?id=1">Edit</a> |
                 <a href="hapusdata.php?id=1" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
