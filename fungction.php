@@ -21,7 +21,7 @@
         return $rows;
     }
 
-    function tambahdata($data){
+    function tambahdata($data, $photo){
         global $conn;
 
         $nama = htmlspecialchars($data["nama_mhs"]);
@@ -29,15 +29,59 @@
         $jurusan = htmlspecialchars($data["jurusan"]);
         $email = htmlspecialchars($data["email"]);
         $no_hp = htmlspecialchars($data["no_hp"]);
-        $photo = $data["photo"];
+        $photoname = $photo['name'];
+        $tmp_name = $photo['tmp_name'];
 
-        $query = "INSERT INTO mahasiswa (nama_mhs, Nim_mhs, jurusan, email, no_hp, photo)
-        VALUES ('$nama', '$Nim', '$jurusan', '$email', '$no_hp', '$photo')";
+        $upload_dir = 'aset/'.$photoname;
 
-        mysqli_query($conn, $query);
+        if (move_uploaded_file($tmp_name, $upload_dir)) {
+            // File uploaded successfully
+            $query = "INSERT INTO mahasiswa (nama_mhs, Nim_mhs, jurusan, email, no_hp, photo)
+            VALUES ('$nama', '$Nim', '$jurusan', '$email', '$no_hp', '$photoname')";
+
+            mysqli_query($conn, $query);
+        }
 
         return mysqli_affected_rows($conn);
     }
 
+    function hapusdata($id){
+        global $conn;
+
+        mysqli_query($conn, "DELETE FROM mahasiswa WHERE id_mhs = $id");
+
+        return mysqli_affected_rows($conn);
+    }
+
+    function editdata($data, $photo, $id){
+        global $conn;
+
+        $nama = htmlspecialchars($data["nama_mhs"]);
+        $Nim = htmlspecialchars($data["Nim_mhs"]);
+        $jurusan = htmlspecialchars($data["jurusan"]);
+        $email = htmlspecialchars($data["email"]);
+        $no_hp = htmlspecialchars($data["no_hp"]);
+        $photoname = $photo['name'];
+        $tmp_name = $photo['tmp_name'];
+
+        $upload_dir = 'aset/'.$photoname;
+
+        if (move_uploaded_file($tmp_name, $upload_dir)) {
+            // File uploaded successfully
+
+        $query = "UPDATE mahasiswa SET
+                    nama_mhs = '$nama',
+                    Nim_mhs = '$Nim',
+                    jurusan = '$jurusan',
+                    email = '$email',
+                    no_hp = '$no_hp',
+                    photo = '$photoname'
+                  WHERE id_mhs = $id";
+
+        mysqli_query($conn, $query);
+        }
+
+        return mysqli_affected_rows($conn);
+    }
 
 ?>

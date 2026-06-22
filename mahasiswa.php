@@ -67,8 +67,8 @@ foreach ($datamahasiswa as $mhs){
             <td><?= $mhs["no_hp"] ?></td>
             <td><img src="aset/<?= $mhs["photo"] ?>" width="100"></td>
             <td>
-                <a href="editdata.php?id=1">Edit</a> |
-                <a href="hapusdata.php?id=1" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
+                <a href="editdata.php?id=<?=$mhs["id_mhs"] ?>">Edit</a>
+                <a href="hapusdata.php?id=<?=$mhs["id_mhs"] ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Hapus</a>
             </td>
         </tr>
 <?php
