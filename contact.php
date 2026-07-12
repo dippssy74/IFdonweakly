@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,11 @@
             <ul><a href="profil.php">Profil</a></ul>
             <ul><a href="contact.php">Contact</a></ul>
             <ul><a href="mahasiswa.php">Data</a></ul>
+            <?php if(isset($_SESSION["login"])) : ?>
+                <ul><a href="logout.php">Logout</a></ul>
+            <?php else : ?>
+                <ul><a href="login.php">Login</a></ul>
+            <?php endif; ?>
         </ul>
     </nav>
     <h1>Contact</h1>
